@@ -1,0 +1,244 @@
+// Variables 
+
+// Colors 
+
+$Blue: hsl(223, 87%, 63%);
+$PaleBlue: hsl(223, 100%, 88%);
+$LightRed: hsl(354, 100%, 66%);
+$Gray: hsl(0, 0%, 59%);
+$VeryDarkBlue: hsl(209, 33%, 12%);
+
+// Typography
+
+$fSize: 20px;
+$lightWeight:300;
+$mediumWeight:600;
+$boldWeight:700;
+@import url("https://fonts.google.com/specimen/Libre+Franklin");
+
+// Breakpoints 
+$bp-small:37em; //768px
+$bp-medium:64em; // 1024px
+$bp-large:85.375em; // 1366px
+$bp-xlarge:120em; // 1920px
+
+//Media queries
+$mq-small:"(min-width:#{$bp-small})";
+$mq-medium:"(min-width:#{$bp-medium})";
+$mq-large:"(min-width:#{$bp-large})";
+$mq-xlarge:"(min-width:#{$bp-xlarge})";
+
+// Base styles 
+
+html {
+  font-size: $fSize;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: $fSize;
+}
+
+a {
+  text-decoration: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+svg path {
+  fill: $Blue;
+}
+
+svg {
+  padding: 7px;
+  border-radius: 50%;
+  border: 1px solid $PaleBlue;
+}
+
+
+.flex-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  min-width: 320px;
+  min-height: 480px;
+  padding: 50px 0 0;
+
+  &-item {
+    // border: 2px dashed red;
+    margin-bottom: 20px;
+    width: 90%;
+  }
+}
+
+.main-header {
+  padding: 25px;
+
+  &__logo {
+    transform: scale(.7);
+  }
+}
+
+.main-container {
+  text-align: center;
+
+  &__banner,
+  &__form-section {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  &__banner {
+    @media #{$mq-small} {
+      width: 70%;
+    }
+
+    @media #{$mq-medium} {
+      width: 40%;
+    }
+  }
+
+  &__form-section {
+    @media #{$mq-small} {
+      width: 36.25em;
+    }
+  }
+
+  .form-section__title {
+    color: $Gray;
+    font-weight: $lightWeight;
+    font-size: 1.2em;
+
+    @media #{$mq-small} {
+      font-size: 1.6em;
+    }
+
+    @media #{$mq-medium} {
+      font-size: 2em;
+    }
+  }
+
+  strong.dark-text {
+    font-weight: $boldWeight;
+    color: $VeryDarkBlue;
+  }
+
+  .suscribe {
+    font-size: .7em;
+    font-weight: $lightWeight;
+
+    @media #{$mq-small} {
+      font-size: .8em;
+    }
+
+    @media #{$mq-medium} {
+      font-size: .9em;
+    }
+  }
+
+  .item {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .form-container {
+    @media #{$mq-small} {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    margin-top: 35px;
+
+    .input {
+      border-color: $Blue;
+      border-width: 1px;
+      width: 85%;
+      height: 45px;
+      margin-bottom: 15px;
+      border-radius: 30px;
+
+    }
+
+    .input[type=email] {
+      text-indent: 20px;
+      color: $Blue;
+      position: relative;
+
+      @media #{$mq-small} {
+        width: 310px;
+      }
+
+    }
+
+    .input[type=email]:required {
+      border: 2px solid $LightRed;
+    }
+    .input[type=email]:required + .invalid-message{
+      display: block;
+    }
+
+    .invalid-message {
+      font-size: .6em;
+      font-style: italic;
+      color: $LightRed;
+      margin-bottom: 20px;
+      display: none;
+
+      @media #{$mq-small} {
+        order: 1;
+        flex-basis: 100%;
+        text-align: left;
+        text-indent: 12em;
+      }
+    }
+
+    .input::placeholder {
+      color: $PaleBlue
+    }
+
+    .input[type=submit] {
+      background-color: $Blue;
+      color: #fff;
+      font-weight: $mediumWeight;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, .2);
+
+      @media #{$mq-small} {
+        width: 160px;
+        margin-left: 10px;
+      }
+
+    }
+  }
+}
+
+.main-footer {
+  @media #{$mq-small} {
+    margin-top: 0;
+  }
+
+  margin-top: 60px;
+
+  .flex-item {
+    // border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .social__link:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  .footer__text {
+    color: $Gray;
+    font-size: .6em;
+  }
+}
